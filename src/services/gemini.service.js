@@ -38,6 +38,6 @@ Format:
 
 }
     } catch (err) {
-    console.error("Gemini Error:", err);
+    console.log("Gemini Error:", err);
     
 }

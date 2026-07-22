@@ -14,7 +14,7 @@ import cookieParser from "cookie-parser";
 
 const app = express()
 app.use(cors({   
-    origin: "http://localhost:5173", // your React app
+    origin: "https://aiexpensetracker-anyk.onrender.com/", // your React app
     credentials: true,
 })); 
 

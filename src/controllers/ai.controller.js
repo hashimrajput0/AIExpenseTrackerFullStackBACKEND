@@ -83,6 +83,7 @@ if (monthlyTransactions.length === 0) {
         console.error(err);
         return res.status(500).json({
             message : "Internal Server Error at getAISummaryController",
+            error : err.message
         })
     
     }

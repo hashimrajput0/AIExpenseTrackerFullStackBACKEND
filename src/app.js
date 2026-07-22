@@ -19,7 +19,6 @@ app.use(cors({
 })); 
 
 ConnectDB()
-console.log("Gemini Key:", process.env.GEMINI_API_KEY);
 
 
 app.use(json())

@@ -1,13 +1,11 @@
 import { GoogleGenAI } from "@google/genai";
 
-try{
-
-    const ai = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY,
 });
 
 export async function generateSummary(stats) {
-
+  try {
     const prompt = `
 Return ONLY valid JSON.
 
@@ -25,19 +23,19 @@ Format:
 `;
 
     const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: prompt,
+      model: "gemini-2.5-flash",
+      contents: prompt,
     });
 
     const text = response.text
-    .replace(/```json/g, "")
-    .replace(/```/g, "")
-    .trim();
+      .replace(/```json/g, "")
+      .replace(/```/g, "")
+      .trim();
 
     return JSON.parse(text);
 
-}
-    } catch (err) {
-    console.log("Gemini Error:", err);
-    
+  } catch (err) {
+    console.error("Gemini Error:", err);
+    throw err; // Let your controller handle the error
+  }
 }

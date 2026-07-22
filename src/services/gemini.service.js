@@ -1,5 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 
+try{
+
     const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY
 });
@@ -34,4 +36,8 @@ Format:
 
     return JSON.parse(text);
 
+}
+    } catch (err) {
+    console.error("Gemini Error:", err);
+    throw err;
 }

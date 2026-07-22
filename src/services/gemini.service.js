@@ -39,5 +39,5 @@ Format:
 }
     } catch (err) {
     console.error("Gemini Error:", err);
-    throw err;
+    
 }
